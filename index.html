@@ -108,11 +108,29 @@ img {
             display: flex;
             justify-content: space-evenly;
         }
-        .sunflowers img {
-            width: 350px;
-            height: auto;
-            animation: sway 2s infinite alternate ease-in-out;
-        }
+       .sunflowers {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap; /* Ensures proper alignment */
+}
+
+.sunflowers img {
+    width: 20vw; /* Adjust width */
+    max-width: 150px; /* Prevents too large images */
+    height: auto;
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .sunflowers {
+        flex-direction: row; /* Keep in a row */
+        align-items: flex-end;
+    }
+}
+
         @keyframes sway {
             0% { transform: rotate(-5deg); }
             100% { transform: rotate(5deg); }
