@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise for You!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffc0cb;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            position: relative;
+            z-index: 10;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            border: none;
+            background: #ff6b6b;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .hidden { display: none; }
+
+        /* Butterfly Animation */
+        .butterfly {
+            position: absolute;
+            width: 80px;
+            top: -100px;
+            left: 10%;
+            animation: fly 8s linear infinite;
+            display: block;
+        }
+        @keyframes fly {
+            0% { transform: translate(0, -100px); }
+            25% { transform: translate(30vw, 30vh); }
+            50% { transform: translate(60vw, 10vh); }
+            75% { transform: translate(90vw, 40vh); }
+            100% { transform: translate(100vw, -100px); }
+        }
+
+        /* Sunflower Animation */
+        .sunflowers {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .sunflowers img {
+            width: 100px;
+            animation: sway 2s infinite alternate ease-in-out;
+        }
+        @keyframes sway {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+
+        /* Envelope Animation */
+        .envelope {
+            width: 100px;
+            margin: auto;
+            cursor: pointer;
+            transition: transform 0.5s ease-in-out;
+        }
+        .envelope:hover {
+            transform: scale(1.1);
+        }
+        .message {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .show-message {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <img src="https://raw.githubusercontent.com/NamanAgrawal-dev/assets/main/butterfly.png" class="butterfly hidden" id="butterfly">
+    
+    <div class="container" id="passwordSection">
+        <h2>Enter Password</h2>
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+
+    <div class="container hidden" id="messageSection">
+        <h2>🎉 OMG! You did it! 🎉</h2>
+        <p>You're officially a doctor! 🩺🥳 I knew you were a genius, but now it's like, scientifically proven! 😉 Seriously though, I'm beyond proud of you. And hey, maybe now you can finally cure my chronic procrastination? 😜</p>
+        <p>Let's celebrate in style, Dr. Satakshi. Meet me soon! AAAGHHHHHH!!!!!!!</p>
+        <p>Love you tons,<br>NXA</p>
+        <img src="https://raw.githubusercontent.com/NamanAgrawal-dev/assets/main/envelope.png" class="envelope" id="envelope" onclick="showMessage()">
+        <div class="message hidden" id="congratsMessage">🎊 CONGRATULATIONS! 🎊</div>
+    </div>
+
+    <div class="sunflowers">
+        <img src="https://raw.githubusercontent.com/NamanAgrawal-dev/assets/main/sunflower.png">
+        <img src="https://raw.githubusercontent.com/NamanAgrawal-dev/assets/main/sunflower.png">
+        <img src="https://raw.githubusercontent.com/NamanAgrawal-dev/assets/main/sunflower.png">
+    </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            if (password === "doctor2025") {
+                document.getElementById("passwordSection").style.display = "none";
+                document.getElementById("messageSection").style.display = "block";
+                document.getElementById("butterfly").classList.remove("hidden");
+            } else {
+                alert("Incorrect password! Try again.");
+            }
+        }
+
+        function showMessage() {
+            document.getElementById("congratsMessage").classList.remove("hidden");
+            document.getElementById("congratsMessage").classList.add("show-message");
+        }
+    </script>
+</body>
+</html>
