@@ -49,28 +49,32 @@ img {
     }
 }
 
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #ffc0cb;
-            overflow: hidden;
-            position: relative;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            position: relative;
-            z-index: 10;
-        }
+       body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ffc0cb;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+       .container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Makes it responsive */
+    max-width: 400px; /* Prevents it from getting too wide */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
         button {
             margin-top: 10px;
             padding: 10px;
