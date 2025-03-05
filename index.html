@@ -5,6 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surprise for You!</title>
     <style>
+        /* Ensure the body is centered on all screen sizes */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+/* Make images scale properly */
+img {
+    max-width: 100%; /* Prevents images from overflowing */
+    height: auto; /* Keeps aspect ratio */
+}
+
+/* Make sunflower images responsive */
+.sunflowers img {
+    width: 30vw; /* Adjust width based on screen size */
+    max-width: 200px; /* Prevents them from getting too big */
+    height: auto;
+}
+
+/* Ensure elements don’t go off-screen */
+.container {
+    max-width: 90%; /* Makes sure it doesn't stretch too wide */
+    padding: 15px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .butterfly {
+        width: 200px; /* Adjust butterfly size for mobile */
+    }
+    .sunflowers {
+        flex-direction: column; /* Stack sunflowers on mobile */
+        align-items: center;
+    }
+    .sunflowers img {
+        width: 50vw; /* Adjust sunflower size */
+    }
+}
+
         body {
             font-family: Arial, sans-serif;
             text-align: center;
